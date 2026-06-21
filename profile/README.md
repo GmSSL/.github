@@ -7,6 +7,12 @@ GmSSL 核心密码库由北京大学自主开发，主仓库位于
 
 `github.com/GmSSL` 组织主要承载 GmSSL 生态仓库，帮助开发者在不同编程语言和应用环境中使用 GmSSL。
 
+## 当前状态
+
+GmSSL 生态仓库以 [guanzhi/GmSSL](https://github.com/guanzhi/GmSSL) 的最新 Release 作为默认集成基线。截至 2026 年 6 月，组织内主要语言绑定和应用集成项目已完成 GmSSL 3.2.0 适配，并在默认 GitHub Actions 配置中通过构建和测试。
+
+当前已验证的项目包括 Java、Python、PHP、Go、Rust、Node.js 语言接口，SoftSDF 软件密码设备接口，以及面向应用集成的 [nginx-gmssl](https://github.com/GmSSL/nginx-gmssl) 和 [curl-gmssl](https://github.com/GmSSL/curl-gmssl)。
+
 ## 仓库总览
 
 ### 多语言接口
@@ -25,6 +31,8 @@ GmSSL 核心密码库由北京大学自主开发，主仓库位于
 | 仓库 | 说明 |
 | --- | --- |
 | [SoftSDF](https://github.com/GmSSL/SoftSDF) | SDF 密码设备接口的软件实现，适合在没有硬件密码设备时进行开发和测试。 |
+| [nginx-gmssl](https://github.com/GmSSL/nginx-gmssl) | 集成 GmSSL 的 Nginx 分支，用于验证和部署 TLCP、TLS 1.2、TLS 1.3 及国密套件服务端能力。 |
+| [curl-gmssl](https://github.com/GmSSL/curl-gmssl) | 集成 GmSSL 的 curl 分支，用于命令行和客户端场景下的国密 TLS/TLCP 访问测试。 |
 | [OpenSSL-Compatibility-Layer](https://github.com/GmSSL/OpenSSL-Compatibility-Layer) | GmSSL 的 OpenSSL 兼容层，帮助 Nginx 等依赖 OpenSSL API 的软件调用 GmSSL 功能。 |
 
 ## 生态能力
@@ -37,6 +45,7 @@ GmSSL 生态覆盖常见国密应用开发场景：
 * 跨平台部署：Linux、macOS、Windows、Android、iOS、OpenHarmony 和嵌入式环境。
 * 密码硬件接入：支持 SDF、SKF 等密码硬件接口，并可通过 SoftSDF 做软件化测试。
 * 多语言开发：Java、Python、PHP、Go、Rust、Node.js 项目可以通过对应接口调用 GmSSL。
+* 应用集成：可以通过 nginx-gmssl 和 curl-gmssl 验证服务端、客户端和命令行工具中的国密 TLS/TLCP 使用场景。
 
 ## 上手路径
 
@@ -44,7 +53,8 @@ GmSSL 生态覆盖常见国密应用开发场景：
 2. 根据项目语言选择对应的绑定仓库。
 3. 按照绑定仓库 README 和示例配置头文件路径、库路径和运行时加载路径。
 4. 如需开发或测试 SDF 密码硬件接口，可使用 [SoftSDF](https://github.com/GmSSL/SoftSDF)。
-5. 如需让已有 OpenSSL API 风格的软件调用 GmSSL，可参考 [OpenSSL-Compatibility-Layer](https://github.com/GmSSL/OpenSSL-Compatibility-Layer)。
+5. 如需测试服务端或客户端协议集成，可参考 [nginx-gmssl](https://github.com/GmSSL/nginx-gmssl) 和 [curl-gmssl](https://github.com/GmSSL/curl-gmssl)。
+6. 如需让已有 OpenSSL API 风格的软件调用 GmSSL，可参考 [OpenSSL-Compatibility-Layer](https://github.com/GmSSL/OpenSSL-Compatibility-Layer)。
 
 ## 核心库特性
 
